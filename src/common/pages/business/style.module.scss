@@ -1,0 +1,41 @@
+@import 'common/scss/base';
+
+.backButton {
+  @include small-text-bold;
+  color: $color-base-grey-70;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  i {
+    display: flex;
+    margin-right: .25rem;
+  }
+}
+
+.howItWorksWrapper {
+  margin-bottom: 3rem;
+}
+
+.voucherSelectWrapper {
+  margin-bottom: 3.5rem;
+}
+
+.messageWrapper {
+  margin-bottom: 4rem;
+}
+
+.logoBand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  margin-bottom: 1.5rem;
+
+  img {
+    width: 255px;
+    height: $tileImageHeight;
+    border-radius: .5rem;
+    background-color: $color-base-white-100;
+    object-fit: contain;
+  }
+}

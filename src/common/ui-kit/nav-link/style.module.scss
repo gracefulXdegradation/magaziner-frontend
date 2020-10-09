@@ -1,0 +1,35 @@
+@import 'common/scss/base';
+
+.navLink {
+  @include small-text;
+  color: $color-base-white-70;
+  text-decoration: none;
+  height: 1.5em;
+  display: flex;
+  align-items: center;
+
+  i {
+    display: flex;
+    margin-right: .5em;
+    color: currentColor;
+  }
+
+  &:hover:not(.navLinkActive) {
+    color: $color-base-white-90;
+  }
+
+  &.navLinkActive {
+    @include small-text-bold;
+    color: $color-base-white-90;
+
+    i {
+      color: $color-brand-orange-100;
+    }
+  }
+
+  &[target=_blank] {
+    i {
+      color: $color-action-light-blue-100;
+    }
+  }
+}

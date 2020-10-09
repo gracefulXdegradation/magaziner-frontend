@@ -1,0 +1,51 @@
+@import 'common/scss/base';
+
+.root {
+  display: grid;
+  grid-gap: $gutter;
+  @include media-breakpoint-up("l") { 
+    grid-template-columns: col(3) col(6);
+    grid-template-areas:
+      "copy grid"
+      "button grid"
+      ". grid";
+  }
+  @include media-breakpoint-down("m") { 
+    grid-template-columns: auto;
+    grid-template-areas:
+      "copy"
+      "grid"
+      "button";
+  }
+}
+
+.grid {
+  grid-area: grid;
+  display: grid;
+  grid-gap: $gutter;
+  @include media-breakpoint-up("l") {
+    grid-template-columns: repeat(2, col(3));
+  }
+  @include media-breakpoint("m") {
+    grid-template-columns: repeat(2, col(4));
+  }
+  @include media-breakpoint("s") {
+    grid-template-columns: repeat(2, col(6));
+  }
+  @include media-breakpoint-down("xs") {
+    grid-template-columns: auto;
+  }
+}
+
+.copy {
+  grid-area: copy;
+  h3 {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.buttonWrapper {
+  grid-area: button;
+  display: flex;
+  @include media-breakpoint-down("m") { justify-content: center; }
+}

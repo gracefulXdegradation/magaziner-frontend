@@ -1,0 +1,54 @@
+@import 'common/scss/base';
+
+.button {
+  display: flex;
+  align-items: center;
+  
+  border-radius: .5em;
+  @include small-text-bold;
+  padding: calc(.5rem - #{$border-width}) calc(1rem - #{$border-width});
+  transition: all .2s ease;
+  
+  &.typePrimary {
+    background: $color-brand-orange-100;
+    border: $border-width solid $color-brand-orange-100;
+    color: $color-base-grey-90;
+    transition: opacity .2s ease, border-color .2s ease, box-shadow .2s ease;
+
+    &:not(.disabled):hover {
+      box-shadow: 0px 4px 16px rgba(241, 162, 8, 0.5);
+    }
+    &.disabled {
+      border-color: $color-brand-orange-gradient-100;
+      background: $color-brand-orange-gradient-100;
+      opacity: .5;
+    }
+  }
+
+  &.typeSecondary {
+    background: transparent;
+    border: $border-width solid $color-brand-orange-100;
+    color: $color-base-white-90;
+    &:not(.disabled):hover {
+      background-color: fade-out($color-brand-light-orange-100, .7);
+    }
+  }
+
+  &.typeSecondaryInverted {
+    background: transparent;
+    border: $border-width solid $color-brand-orange-100;
+    color: $color-base-grey-90;
+    &:not(.disabled):hover {
+      background-color: fade-out($color-brand-light-orange-100, .7);
+    }
+  }
+
+  &:not(.disabled):hover {
+    cursor: pointer;
+  }
+
+  i {
+    display: flex;
+    margin-right: .5rem;
+  }
+}

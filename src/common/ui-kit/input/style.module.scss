@@ -1,0 +1,87 @@
+@import 'common/scss/base';
+
+@mixin extra-small-text {
+  font-family: 'Open Sans';
+  font-weight: normal;
+  font-size: .75rem;
+  line-height: 1rem;
+  letter-spacing: 0.02rem;
+}
+
+.inputRoot {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  width: 100%;
+  border: $border-width solid $color-base-grey-70;
+  border-radius: .5rem;
+  display: flex;
+  align-items: center;
+  padding: .25rem .5rem;
+  i {
+    display: flex;
+    color: $color-base-grey-100;
+    margin-right: .25rem;
+  }
+
+  .inputInner {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    position: relative;
+  }
+
+  input {
+    @include small-text;
+    flex-grow: 1;
+    outline: none;
+    background: transparent;
+    border: none;
+    padding-right: 1.5rem;
+  }
+
+  .placeholder {
+    @include small-text;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .inputShadow {
+    @include small-text;
+    position: absolute;
+    display: flex;
+    max-width: 100%;
+    pointer-events: none;
+
+    .inputShadowInner {
+      white-space: nowrap;
+      max-width: 100%;
+      overflow: hidden;
+      visibility: hidden;
+      height: 0;
+    }
+
+    .clear {
+      min-width: 1.5rem;
+      height: 1.5rem;
+      pointer-events: auto;
+      cursor: pointer;
+    }
+  }
+
+  .prefix {
+    @include small-text;
+    margin-right: .25rem;
+  }
+
+  &.blank:not(.focus) i { color: $color-base-grey-70; }
+  &.error { border-color: $color-action-light-red-100; }
+}
+
+.message {
+  @include extra-small-text;
+  .required span { color: $color-action-light-red-100; }
+  .error { color: $color-action-light-red-100; }
+}

@@ -1,0 +1,95 @@
+@import 'common/scss/base';
+
+.backButton {
+  @include small-text-bold;
+  color: $color-base-grey-70;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  i {
+    display: flex;
+    margin-right: .25rem;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.purchase {
+  display: flex;
+  align-items: center;
+  @include media-breakpoint-up("l") {
+    padding: 1rem 0;
+    margin-bottom: 4rem;
+  }
+  @include media-breakpoint("m") {
+    padding: 1rem;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+  }
+  @include media-breakpoint("s") {
+    padding: 1rem;
+    justify-content: space-between;
+    margin-bottom: 1.75rem;
+  }
+  @include media-breakpoint-down("xs") {
+    flex-direction: column;
+    padding: 1rem 2rem;
+    margin-bottom: 1.75rem;
+  }
+}
+
+.purchaseDetails {
+  @include small-text;
+  color: $color-base-white-100;
+
+  .line {
+    display: flex;
+  }
+
+  span {
+    color: $color-base-white-90;
+    width: 5em;
+  }
+
+  @include media-breakpoint-up("l") {
+    width: col(4);
+    margin-left: $gutter;
+  }
+  @include media-breakpoint("m", "s") { 
+    flex: 1;
+   }
+}
+
+.businessLogo {
+  background: $color-base-white-100;
+  border-radius: .5rem;
+  height: 8rem;
+  overflow: hidden;
+
+  @include media-breakpoint-up("l") {
+    min-width: col(3);
+    margin: 0 calc(#{col(1)} + #{$gutter});
+  }
+  @include media-breakpoint("m", "s") {
+    min-width: 8rem;
+    margin-right: $gutter;
+  }
+  @include media-breakpoint-down("xs") {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.paymentSystems {
+  margin-top: 1rem;
+}

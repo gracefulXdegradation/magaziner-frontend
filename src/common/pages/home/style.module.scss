@@ -1,0 +1,9 @@
+@import 'common/scss/base';
+
+.filters {
+  display: grid;
+  grid-gap: .5rem;
+  grid-template-columns: 7rem 7rem;
+}
+
+.businessTypeSelect { width: 9rem; }

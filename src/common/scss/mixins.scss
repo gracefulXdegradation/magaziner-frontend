@@ -1,0 +1,160 @@
+@import 'common/scss/grid';
+
+@mixin content {
+  @include media-breakpoint-up("l") { width: col(9); }
+  @include media-breakpoint("m") { width: col(8); }
+  @include media-breakpoint("s") { width: col(12); }
+
+  @include media-breakpoint-up("s") { margin: 2rem $gutter; }
+  @include media-breakpoint-down("xs") {
+    width: 100%;
+    padding: 1.5rem $half-gutter;
+  }
+}
+
+@mixin heading-1 {
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-size: 2rem;
+  line-height: 1.5em;
+  letter-spacing: 0.02em;
+}
+
+@mixin heading-2 {
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-size: 1.75rem;
+  line-height: 1.29em;
+  letter-spacing: 0.02em;
+}
+
+@mixin heading-3 {
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 1.33em;
+  letter-spacing: 0.02em;
+}
+
+@mixin heading-4 {
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-size: 1.25rem;
+  line-height: 1.4em;
+  letter-spacing: 0.02em;
+}
+
+@mixin heading-5 {
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.5em;
+  letter-spacing: 0.02em;
+}
+
+@mixin base-text {
+  font-family: 'Open Sans';
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 1.5em;
+  letter-spacing: 0.02em;
+}
+
+@mixin base-text-bold {
+  font-family: 'Open Sans';
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.5em;
+  letter-spacing: 0.02em;
+}
+
+@mixin small-text {
+  font-family: 'Open Sans';
+  font-weight: normal;
+  font-size: .875rem;
+  line-height: 1.43em;
+  letter-spacing: 0.05em;
+}
+
+@mixin small-text-bold {
+  font-family: 'Open Sans';
+  font-weight: bold;
+  font-size: .875rem;
+  line-height: 1.43em;
+  letter-spacing: 0.05em;
+}
+
+@mixin divider {
+  border-bottom: $border-width solid $color-base-grey-10;
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}  
+}
+
+@mixin card-grid {
+  width: 100%;
+  display: grid;
+  grid-gap: $gutter;
+  justify-content: center;
+  @include media-breakpoint-up("l") {
+    grid-template-columns: repeat(auto-fit, col(3));
+  }
+  @include media-breakpoint("m") {
+    grid-template-columns: repeat(auto-fit, col(4));
+  }
+  @include media-breakpoint("s") {
+    grid-template-columns: repeat(auto-fit, col(6));
+  }
+  @include media-breakpoint-down("xs") {
+    grid-template-columns: repeat(auto-fit, 100%);
+  }
+}
+
+@mixin text-with-card($reverse: false) {
+  display: grid;
+  width: 100%;
+
+  @include media-breakpoint-up("l") {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: $gutter;
+    @if $reverse {
+      grid-template-areas: "card card text";
+    } @else {
+      grid-template-areas: "text card card";
+    }
+  }
+  @include media-breakpoint-down("m") {
+    grid-gap: $gutter;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "text"
+        "card";
+  }
+
+  & > :first-child {
+    grid-area: text;
+
+    h3 {
+      color: $color-base-grey-90;
+      @include media-breakpoint-up("l") { margin-bottom: 1.5rem; }
+      @include media-breakpoint-down("m") { margin-bottom: 1rem; }
+    }
+  
+    p {
+      @include base-text;
+    }
+  }
+
+  & > :last-child {
+    grid-area: card;
+    border-radius: 1rem;
+    width: 100%;
+    box-shadow: 0px 1px 4px $color-base-grey-30;
+    overflow: hidden;
+  }
+}

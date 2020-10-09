@@ -1,0 +1,42 @@
+@import 'common/scss/base';
+
+.backButton {
+  @include small-text-bold;
+  color: $color-base-grey-70;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  i {
+    display: flex;
+    margin-right: .25rem;
+  }
+}
+
+.stickyCTA {
+  position: sticky;
+  display: flex;
+  width: 100%;
+  bottom: 0;
+  height: $filter-bar-height;
+  background: $color-base-grey-100;
+}
+.stickyCTAInner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include content;
+  @include media-breakpoint-up("s") { margin: 0 $gutter; }
+  @include media-breakpoint-down("xs") { padding: 0; }
+}
+
+.voucherCarouselWrap {
+  margin-bottom: 1.5rem;
+}
+
+.howItWorksWrapper {
+  margin-bottom: 3rem;
+}
+
+.formWrapper {
+  margin-bottom: 4rem;
+}

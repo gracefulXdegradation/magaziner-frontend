@@ -1,0 +1,15 @@
+@import 'common/scss/base';
+
+.voucherSelect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h3 {
+    margin-bottom: 2rem;
+  }
+}
+
+.voucherGrid {
+  @include card-grid;
+  grid-auto-rows: $tileImageHeight;
+}

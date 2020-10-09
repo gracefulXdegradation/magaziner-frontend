@@ -1,0 +1,49 @@
+/****** MEDIA QUERIES ******/
+
+$breakpoints-up: ("xs": 320px, "s": 576px, "m": 768px, "l": 1024px, "xl": 1280px, "xxl": 1920px);
+$breakpoints-down: ("xs": 575.99px, "s": 767.99px, "m": 1023.99px, "l": 1279.99px, "xl": 1919.99px);
+
+@mixin media-breakpoint-up($size) {
+  @media (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
+}
+@mixin media-breakpoint-down($size) {
+  @media (max-width: map-get($breakpoints-down, $size)) {
+    @content;
+  }
+}
+@mixin media-breakpoint($sizes...) {
+  @for $i from 0 to length($sizes) {
+    $size: #{nth($sizes, $i + 1)};
+    @media (min-width: map-get($breakpoints-up, $size))
+      and (max-width: map-get($breakpoints-down, $size)) {
+      @content;
+    }
+  }
+}
+
+/****** GRID ******/
+:root {
+  --gutter: 30px;
+  --col: 65px;
+  @include media-breakpoint-up("s") { --col: 15px; }
+  @include media-breakpoint-up("m") { --col: 30px; }
+  @include media-breakpoint-up("l") { --col: 50px; }
+  @include media-breakpoint-up("xl") { --col: 65px; }
+  @include media-breakpoint-up("xxl") { --col: 65px; }
+}
+
+@function col($c) {
+  @return calc(#{$c} * var(--col) + (#{$c} - 1) * var(--gutter));
+}
+
+$gutter: var(--gutter);
+$half-gutter: calc(#{$gutter} / 2);
+
+/****** EXPORT ******/
+
+:export {
+  mediaBreakpointUpS: map-get($breakpoints-up, "s");
+  mediaBreakpointDownXS: map-get($breakpoints-down, "xs");
+}

@@ -1,0 +1,58 @@
+@import 'common/scss/base';
+
+.howItWorksContent {
+  @include small-text;
+  color: $color-base-grey-70;
+  background: $color-base-grey-5;
+  
+  border-radius: .5rem;
+
+  display: grid;
+
+  @include media-breakpoint-up("l") {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 6%;
+    padding: 1rem $gutter;
+  }
+  @include media-breakpoint("s", "m") { padding: 1rem $gutter; }
+  @include media-breakpoint-down("xs") { padding: 1rem; }
+
+  p {
+    @include small-text;
+    margin: .5em 0;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.topDivider {
+  @include heading-4;
+  color: $color-base-grey-50;
+
+  margin-bottom: 1rem;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-gap: 1rem;
+  align-items: center;
+  &:before,
+  &:after {
+     content: '';
+     display: block;
+     height: $border-width;
+     background-color: $color-base-grey-5;
+  }
+}
+
+.bottomDivider {
+  @include divider;
+  margin-top: 2rem;
+}
+
+.link {
+  color: $color-action-light-blue-100;
+  &:hover {
+    color: $color-action-blue-100;
+  }
+}

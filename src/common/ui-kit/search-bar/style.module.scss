@@ -1,0 +1,25 @@
+@import 'common/scss/base';
+
+.searchForm {
+  display: flex;
+  align-items: center;
+  padding: 0 .5em;
+  color: $color-base-grey-70;
+
+  .searchInput {
+    @include small-text-bold;
+    color: inherit;
+    text-align: right;
+    min-width: 5em;
+
+    @include placeholder {
+      color: $color-base-grey-70;
+    }
+  }
+
+  .searchSubmitButton {
+    display: flex;
+    cursor: pointer;
+    color: currentColor;
+  }
+}

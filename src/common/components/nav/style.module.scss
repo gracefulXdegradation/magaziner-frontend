@@ -1,0 +1,77 @@
+@import 'common/scss/base';
+
+.navRoot {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  @include media-breakpoint-up("l") { padding: .5rem 1rem .5rem 0; }
+  @include media-breakpoint-down("m") { padding: .5rem 1rem; }
+}
+
+.navContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  flex: 1;
+}
+
+.navCol {
+  display: flex;
+  flex-direction: column;
+  @include media-breakpoint-down("s") {
+    margin-right: 3rem;
+  }
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+
+  p {
+    @include small-text;
+    color: $color-base-white-50;
+    margin-bottom: 1rem;
+  }
+
+  h5 {
+    margin-bottom: 1em;
+    color: $color-base-white-90;
+  }
+}
+
+.navSection {
+  @extend .section;
+  @include media-breakpoint-down("s") {
+    @media (orientation: landscape) {
+      flex-direction: row;
+    }
+  }
+}
+
+.social {
+  display: flex;
+
+  @include media-breakpoint-up("m") { flex-direction: column; }
+  @include media-breakpoint-down("s") { flex-direction: row; }
+}
+
+.navLink {
+  margin: .5rem 0 1rem;
+  @include media-breakpoint-down("s") { margin-right: 1rem; }
+}
+
+.divider {
+  @include divider;
+  border-color: $color-base-white-10;
+  margin-bottom: .5rem;
+}
+
+.closeButton {
+  color: $color-base-white-100;
+  margin-bottom: 1rem;
+}
+
+.copy {
+  margin-top: 3rem;
+}

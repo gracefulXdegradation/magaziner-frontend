@@ -1,0 +1,17 @@
+@import 'common/scss/base';
+
+.recipientForm {
+  display: grid;
+  grid-gap: 1.5rem;
+  margin: 0 auto;
+
+  @include media-breakpoint-up("l") { width: col(5); }
+  @include media-breakpoint("m") { width: col(6); }
+  @include media-breakpoint("s") { width: col(8); }
+
+  h3 {
+    color: $color-base-grey-90;
+    display: flex;
+    justify-content: center;
+  }
+}

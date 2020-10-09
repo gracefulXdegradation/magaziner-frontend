@@ -1,0 +1,41 @@
+@import 'common/scss/base';
+
+.checkboxRoot {
+  display: flex;
+  align-items: flex-start;
+
+  p {
+    color: $color-base-grey-50;
+    font-family: 'Open Sans';
+    font-weight: normal;
+    font-size: .75rem;
+    line-height: 1.43em;
+    letter-spacing: 0.02em;
+    margin-left: .5rem;
+    cursor: pointer;
+  }
+}
+
+.checkbox {
+  border: $border-width solid $color-brand-orange-100;
+  border-radius: .5rem;
+  display: flex;
+  cursor: pointer;
+
+  i {
+    display: flex;
+    color: transparent;
+    margin: -$border-width;
+    transition: color .2s ease;
+  }
+
+  input[type=checkbox] {
+    display: none;
+  }
+
+  &.checked {
+    i {
+      color: $color-base-grey-70;
+    }
+  }
+}

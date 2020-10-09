@@ -1,0 +1,121 @@
+@import 'common/scss/base';
+
+.select {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  
+  min-width: 6rem;
+
+  @include small-text-bold;
+  color: $color-base-grey-70;
+
+  .selectValue {
+    border: $border-width solid $color-base-grey-90;
+    background: $color-base-grey-90;
+    color: $color-base-white-100;
+    transition: all .2s ease;
+
+    border-radius: .5em;
+    line-height: 1.5em;
+    padding: 0 calc(.5rem - #{$border-width});
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    b {
+      flex: 1;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+
+  .selectOptionList {
+    border: $border-width solid currentColor;
+    background: $color-base-white-100;
+
+    border-radius: .5em;
+    width: 100%;
+    top: 2.25rem;
+    min-width: 100%;
+    z-index: 1;
+    
+    width: auto;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+  }
+
+  .selectOption {
+    border: $border-width solid transparent;
+    
+    display: flex;
+    justify-content: flex-start;
+    margin: -$border-width;
+    white-space: nowrap;
+
+    padding: .25rem calc(.5rem - #{$border-width});
+    border-radius: .5em;
+
+    &:first-child {
+      padding-top: calc(.25rem - #{$border-width});
+    }
+    &:last-child {
+      padding-bottom: calc(.25rem - #{$border-width});
+    }
+  }
+  
+  .selectOptionActive {
+    color: $color-base-white-100;
+    background: $color-base-grey-90;
+  }
+}
+
+.select.selectDisabled .selectValue {
+  color: $color-base-grey-30;
+  border-color: $color-base-grey-30;
+  background: $color-base-white-100;
+  cursor: default;
+}
+
+.select:not(.selectDisabled) {
+  .selectValue:hover {
+    background: $color-base-grey-70;
+    border-color: $color-base-grey-70;
+  }
+  .selectOption:hover {
+    color: $color-base-grey-90;
+    border-color: currentColor;
+  }
+  .selectOptionActive:hover {
+    background: $color-base-grey-70;
+    border-color: $color-base-grey-70;
+    color: $color-base-white-100;
+  }
+}
+
+.select.selectOpen {
+  .selectIcon {
+    transform: rotateX(180deg);
+  }
+
+  .selectValue {
+    background: $color-base-white-100;
+    color: $color-base-grey-70;
+    border-color: $color-base-grey-70;
+
+    &:not(.selectDisabled):hover {
+      background: $color-base-grey-10;
+      color: $color-base-grey-90;
+      border-color: $color-base-grey-90;
+    }
+  }
+
+  .selectOptionList {
+    display: grid;
+    grid-gap: $border-width;
+  }
+}

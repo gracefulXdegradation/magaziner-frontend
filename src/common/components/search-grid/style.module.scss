@@ -1,0 +1,6 @@
+@import 'common/scss/base';
+
+.searchGrid {
+  height: 100%;
+  @include card-grid;
+}

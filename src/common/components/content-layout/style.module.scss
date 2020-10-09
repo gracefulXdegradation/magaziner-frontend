@@ -1,0 +1,32 @@
+@import 'common/scss/base';
+
+.filterBar { grid-area: filter-bar; }
+.content { grid-area: content; }
+
+.contentLayout {
+  height: 100%;
+  border-top: $border-width solid $color-base-grey-10;
+
+  &.withBar {
+    display: grid;
+    border-top: none;
+    @include media-breakpoint-up("m") {
+      grid-template-columns: auto;
+      grid-template-rows: $filter-bar-height auto;
+      grid-template-areas: 
+        "filter-bar"
+        "content";
+    }
+    @include media-breakpoint-down("s") {
+      grid-template-columns: auto;
+      grid-template-rows: $filter-bar-height-mobile auto;
+      grid-template-areas: 
+        "filter-bar"
+        "content";
+    }
+  }
+}
+
+.contentWrapper {
+  @include content;
+}

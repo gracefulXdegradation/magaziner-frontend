@@ -1,0 +1,58 @@
+@import 'common/scss/base';
+
+.voucherCarousel {
+  width: 100%;
+  display: grid;
+  grid-gap: $gutter;
+  align-items: center;
+  @include media-breakpoint-up("l") { grid-template-columns: col(2) col(5) col(2); }
+  @include media-breakpoint("m") { grid-template-columns: col(1) col(6) col(1); }
+  @include media-breakpoint("s") { grid-template-columns: col(2) col(8) col(2); }
+  @include media-breakpoint-down("xs") {
+    grid-gap: .5rem;
+    grid-template-columns: 1.5rem 1fr 1.5rem;
+  }
+}
+
+.selectedVoucher {
+  @include media-breakpoint-up("m") { height: 224px; }
+  @include media-breakpoint-down("s") { height: 176px; }
+}
+
+.prev {
+  border-radius: 0 .5rem .5rem 0;
+  .backdrop { right: 0; }
+}
+
+.next {
+  border-radius: .5rem 0 0 .5rem;
+  .backdrop { left: 0; }
+  i { transform: rotateZ(180deg); }
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 128px;
+  overflow: hidden;
+  i {
+    display: flex;
+    color: $color-base-grey-100;
+  }
+
+  .backdrop {
+    position: absolute;
+    height: 100%;
+    width: 255px;
+    opacity: .3;
+  }
+}
+
+.hidden {
+  max-height: 0;
+  overflow: hidden;
+}

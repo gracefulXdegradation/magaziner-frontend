@@ -1,0 +1,93 @@
+@import 'common/scss/base';
+
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+.slotCode {
+  grid-area: code;
+}
+
+.slotQr {
+  grid-area: qr;
+  img {
+    @include media-breakpoint-up("m") {
+      width: 10rem;
+      height: 10rem;
+    }
+    @include media-breakpoint-down("xs") {
+      width: 9.25rem;
+      height: 9.25rem;
+    }
+  }
+}
+
+.slotCard {
+  grid-area: card;
+  @include media-breakpoint-up("m") { height: 14rem; }
+  @include media-breakpoint-down("s") { height: 11rem; }
+}
+
+.purchaseGrid {
+  display: grid;
+  margin-bottom: 2rem;
+
+  @include media-breakpoint-up("l") {
+    grid-template-columns: col(6) col(3);
+    grid-gap: 1.5rem $gutter;
+    grid-template-areas:
+      "card qr"
+      "card code";
+  }
+
+  @include media-breakpoint("m") {
+    grid-template-columns: col(3) col(5);
+    grid-gap: 1.5rem $gutter;
+    grid-template-areas:
+      "card card"
+      "qr code"
+      "qr .";
+  }
+
+  @include media-breakpoint("s") {
+    grid-template-columns: col(4) col(8);
+    grid-gap: 1rem $gutter;
+    grid-template-areas:
+      "card card"
+      "qr code"
+      "qr .";
+  }
+
+  @include media-breakpoint-down("xs") {
+    grid-template-columns: 2fr 3fr;
+    grid-gap: 1rem 0.75rem;
+    grid-template-areas:
+      "card card"
+      "qr code"
+      "qr .";
+  }
+}
+
+.successNote {
+  margin-bottom: 1rem;
+  @include media-breakpoint-up("l") { width: col(6); }
+  h5 { margin-bottom: 1rem; }
+}
+
+.buttons {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+
+  @include media-breakpoint-down("xs") { flex-direction: column; }
+}
+.pdfButton {
+  @include media-breakpoint-up("s") { margin-left: 1rem; }
+  @include media-breakpoint-down("xs") { margin-top: 1rem; }
+}
+
+.resendForm {
+  margin-bottom: 4rem;
+  max-width: 385px;
+}
